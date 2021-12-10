@@ -51,3 +51,15 @@ MIDDLE_TRIANGLE="\[\e[0;37m\]"
 END="\[\e[m\]"
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1="${BEGIN} \u@${HOSTNAME} ${BEGIN_TRIANGLE}${MIDDLE} \W\$(__git_ps1) ${MIDDLE_TRIANGLE}${END} "
+
+# Ruby settings
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+
+# Java settings
+export JAVA_HOME=$HOME/.sdkman/candidates/java/current
+export PATH=$JAVA_HOME/bin:$PATH
+export SDKMAN_DIR="$HOME/.sdkman"
+if [ -d "${SDKMAN_DIR}" ]; then
+  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
