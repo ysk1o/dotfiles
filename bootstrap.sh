@@ -4,7 +4,7 @@ set -euo pipefail
 DOTPATH=$HOME/dotfiles
 
 if [ ! -d "$DOTPATH" ]; then
-  git clone https://github.com/yu-suke-dev/dotfiles.git "$DOTPATH"
+  git clone https://github.com/ysk1o/dotfiles.git "$DOTPATH"
 else
   echo "$DOTPATH already downloaded. Updating..."
   cd "$DOTPATH"
