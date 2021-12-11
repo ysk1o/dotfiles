@@ -45,6 +45,6 @@ fi
 curl -s "https://get.sdkman.io" | bash
 
 # iterm2 settings
-ln -sf "$DOTPATH/iterm2/com.googlecode.iterm2.plist" "$HOME/Library/Prefences/com.googlecode.iterm2.plist"
+ln -sf "$DOTPATH/iterm2/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
 
 echo "Bootstrapping DONE"
