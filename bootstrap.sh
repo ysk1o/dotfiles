@@ -40,6 +40,19 @@ if grep -q $bash_path /etc/shells; then
   echo $bash_path >> /etc/shells
   chsh -s $bash_path
 fi
+echo
+
+# Node.js install
+if [ ! -d "$HOME/.nodenv" ] ; then
+    git clone git://github.com/nodenv/nodenv.git $HOME/.nodenv
+fi
+if [ ! -d "$HOME/.nodenv/plugins/node-build" ] ; then
+    git clone https://github.com/nodenv/node-build.git $HOME/.nodenv/plugins/node-build
+fi
+if [ ! -d "$HOME/.nodenv/plugins/node-build-update-defs" ] ; then
+    git clone https://github.com/nodenv/node-build-update-defs.git $HOME/.nodenv/plugins/node-build-update-defs
+fi
+echo
 
 # sdkman install
 type sdk > /dev/null 2>&1
