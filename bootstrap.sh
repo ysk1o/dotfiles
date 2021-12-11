@@ -55,11 +55,12 @@ fi
 echo
 
 # sdkman install
-type sdk > /dev/null 2>&1
-if "$?"; then
+if [ -z "$SDKMAN_DIR" ]; then
+    SDKMAN_DIR="$HOME/.sdkman"
+fi
+
+if ! [ -d "$SDKMAN_DIR" ]; then
   curl -s "https://get.sdkman.io" | bash
-else
-  sdk selfupdate force
 fi
 echo
 
