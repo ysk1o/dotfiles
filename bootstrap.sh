@@ -42,7 +42,13 @@ if grep -q $bash_path /etc/shells; then
 fi
 
 # sdkman install
-curl -s "https://get.sdkman.io" | bash
+type sdk > /dev/null 2>&1
+if "$?"; then
+  curl -s "https://get.sdkman.io" | bash
+else
+  sdk selfupdate force
+fi
+echo
 
 # iterm2 settings
 ln -sf "$DOTPATH/iterm2/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
