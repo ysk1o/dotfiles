@@ -1,8 +1,11 @@
 {
-    "eslint.autoFixOnSave": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "editor.fontFamily": "Cica",
-    "editor.fontSize": 16,
-    "launch": {}
-  }
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.fontFamily": "'HackGen35Nerd Console', monospace",
+  "editor.fontSize": 16,
+  "launch": {},
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.codeLensFontFamily": "'HackGen35Nerd Console', monospace"
+}
