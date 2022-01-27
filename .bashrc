@@ -52,6 +52,21 @@ END="\[\e[m\]"
 GIT_PS1_SHOWDIRTYSTATE=true
 export PS1="${BEGIN} \u@${HOSTNAME} ${BEGIN_TRIANGLE}${MIDDLE} \W\$(__git_ps1) ${MIDDLE_TRIANGLE}${END} "
 
+# gnu-sed(required brew install gnu-sed)
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+
+export PATH="$HOME/.nodenv/versions/*/bin:$PATH"
+
+export LANG="ja_JP.UTF-8"
+export HISTTIMEFORMAT='%y-%m-%d %H:%M:%S '
+export HISTFILESIZE=10000
+export HOMEBREW_BUNDLE_NO_LOCK=true
+
+# nodenv settings
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+
 # Ruby settings
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
