@@ -1,0 +1,14 @@
+name: macos
+
+on:
+  pull_request
+
+jobs:
+  macos-test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run shell
+      env:
+        BRANCH_NAME: ${{github.head_ref}}
+      run: sh bootstrap.sh $(basename $BRANCH_NAME)
