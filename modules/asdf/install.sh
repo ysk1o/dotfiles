@@ -8,7 +8,7 @@ if ! command -v asdf >/dev/null 2>&1; then
 fi
 
 # symlink
-ln -snf "$(cd "$(dirname "${BASH_SOURCE:-$0}")" && pwd)/asdfrc" "$HOME/.asdfrc"
+# ln -snf "$(cd "$(dirname "${BASH_SOURCE:-$0}")" && pwd)/asdfrc" "$HOME/.asdfrc"
 
 # export
-source "$(dirname "${BASH_SOURCE:-$0}")/export.bash"
+# source "$(dirname "${BASH_SOURCE:-$0}")/export.bash"
