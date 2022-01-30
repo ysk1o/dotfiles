@@ -9,4 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run shell
-      run: sh bootstrap.sh
+      env:
+        BRANCH_NAME: ${{github.head_ref}}
+      run: sh bootstrap.sh $(basename $BRANCH_NAME)
