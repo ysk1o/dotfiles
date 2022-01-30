@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
-export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 DOTPATH=$HOME/dotfiles
 
-if [ ! -d "$DOTPATH" ]; then
-  git clone https://github.com/ysk1o/dotfiles.git "$DOTPATH"
-else
-  echo "$DOTPATH already downloaded. Updating..."
-  cd "$DOTPATH"
-  git stash
-  git checkout master
-  git pull origin master
-  echo
-fi
+# if [ ! -d "$DOTPATH" ]; then
+#   git clone https://github.com/ysk1o/dotfiles.git "$DOTPATH"
+# else
+#   echo "$DOTPATH already downloaded. Updating..."
+#   cd "$DOTPATH"
+#   git stash
+#   git checkout master
+#   git pull origin master
+#   echo
+# fi
 
 cd "$DOTPATH"
 
