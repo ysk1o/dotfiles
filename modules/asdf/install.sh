@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set +u
 
 # install
 if ! command -v asdf >/dev/null 2>&1; then
