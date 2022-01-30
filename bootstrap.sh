@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 DOTPATH=$HOME/dotfiles
 
