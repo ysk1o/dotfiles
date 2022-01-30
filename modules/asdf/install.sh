@@ -8,7 +8,3 @@ fi
 
 # symlink
 ln -snf "$(cd "$(dirname "${BASH_SOURCE:-$0}")" && pwd)/asdfrc" "$HOME/.asdfrc"
-
-# export
-# . "$(brew --prefix asdf)"/asdf.sh
-# . "$(brew --prefix asdf)"/etc/bash_completion.d/asdf.bash
