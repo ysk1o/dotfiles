@@ -16,10 +16,6 @@ export HISTFILESIZE=10000
 # lang
 export LANG="ja_JP.UTF-8"
 
-# PS1 git completion
-. /usr/local/etc/bash_completion.d/git-prompt.sh
-. /usr/local/etc/bash_completion.d/git-completion.bash
-
 # PS1 setting
 BEGIN="\[\e[0;30;42m\]"
 BEGIN_TRIANGLE="\[\e[0;32;47m\]"
