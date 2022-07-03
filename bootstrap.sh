@@ -5,6 +5,10 @@ DOTPATH=$HOME/dotfiles
 
 if [ ! -d "$DOTPATH" ]; then
   git clone https://github.com/ysk1o/dotfiles.git "$DOTPATH"
+  cd "$DOTPATH"
+  git remote set-url origin git@github.com:ysk1o/dotfiles.git
+  git config --local user.name ysk1o
+  git config --local user.email contact@ysk1o.com
 else
   echo "$DOTPATH already downloaded. Updating..."
   cd "$DOTPATH"
@@ -13,8 +17,6 @@ else
   git pull origin master
   echo
 fi
-
-cd "$DOTPATH"
 
 # install homebrew
 if command -v brew >/dev/null 2>&1; then
