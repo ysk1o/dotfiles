@@ -35,6 +35,9 @@ do
   echo "Finish installation script ${f}"
 done
 
+# load .bash_profile
+source .bash_profile
+
 # set symbolic link
 for file in .??*; do
   [[ "$file" == ".git" ]] && continue
