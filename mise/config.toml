@@ -1,0 +1,11 @@
+[tools]
+aws = "latest"
+eza = "0.21.3"
+node = "22.0.0"
+"npm:yarn" = "latest"
+terraform = "latest"
+tflint = "latest"
+usage = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = []
