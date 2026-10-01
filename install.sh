@@ -1,5 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
+DOTFILES_PATH="$HOME/.local/share/dotfiles"
 CONFIG_FILE="$DOTFILES_PATH/config.yaml"
 
+source "$DOTFILES_PATH/lib/log.sh"
+source "$DOTFILES_PATH/lib/run.sh"
+source "$DOTFILES_PATH/lib/fs.sh"
+source "$DOTFILES_PATH/lib/brew.sh"
 
 log_section "Install Homebrew"
 if command -v brew >/dev/null 2>&1; then
@@ -121,3 +129,7 @@ for ((i=0; i<tool_count; i++)); do
     source "$tool_post_install_script"
   fi
 done
+
+
+echo ""
+echo "🔄 Log out and log back in to apply all changes. (⌘ + ⇧ + Q)"
