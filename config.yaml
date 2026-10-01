@@ -87,6 +87,13 @@ tools:
       type: path
       value: /opt/homebrew/bin/zsh
 
+  - command: font-hackgen-nerd
+    cask: true
+    description: "HackGen Nerd Font"
+    check:
+      type: path
+      value: ~/Library/Fonts/HackGenConsoleNF-Regular.ttf
+
   ## cloud
   - command: awscli
     description: "AWS CLI"
@@ -118,6 +125,12 @@ tools:
     check:
       type: path
       value: /opt/homebrew/bin/flutter
+  - command: android-studio
+    cask: true
+    description: "Android Studio (installs the Android SDK on first launch)"
+    check:
+      type: path
+      value: /Applications/Android Studio.app
 
   - command: google-chrome
     cask: true

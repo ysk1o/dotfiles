@@ -89,6 +89,8 @@ for ((i=0; i<tool_count; i++)); do
   if [ "$check_value" = "null" ] || [ -z "$check_value" ]; then
     check_value="$cmd"
   fi
+  # Expand leading ~ so check paths can point under $HOME
+  check_value="${check_value/#\~/$HOME}"
 
   # Get cask if specified
   cask=$(yq ".tools[$i].cask" "$CONFIG_FILE" 2>/dev/null)

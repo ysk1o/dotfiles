@@ -25,4 +25,6 @@ make upgrade   # brew update && brew upgrade && brew cleanup
 - `tools/<command>/post_install.sh` — run after the tool is installed
 - `tools/<command>/export.zsh` — sourced by `.zshrc`
 
+`dotfiles/` and `post_install.sh` are only processed for tools listed in `config.yaml`. `export.zsh` is sourced for every directory under `tools/`.
+
 Tools with `pin: true` are excluded from `brew upgrade`.
