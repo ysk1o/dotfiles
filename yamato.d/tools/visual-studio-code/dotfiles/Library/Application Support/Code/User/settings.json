@@ -1,0 +1,16 @@
+{
+    "window.commandCenter": true,
+    "editor.fontFamily": "HackGen Console NF, Menlo, Monaco, 'Courier New', monospace",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily"
+    ],
+    "editor.formatOnSave": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.eol": "\n",
+    "[ruby]": {
+        "editor.defaultFormatter": "Shopify.ruby-lsp"
+    },
+    "claudeCode.preferredLocation": "panel"
+}

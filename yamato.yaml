@@ -1,0 +1,190 @@
+defaults:
+  - domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+    comment: "Enabling auto-hide"
+
+  - domain: com.apple.dock
+    key: persistent-apps
+    type: array
+    value: []
+    comment: "Removing pinned apps"
+
+  - domain: com.apple.dock
+    key: orientation
+    type: string
+    value: left
+    comment: "Moving Dock to left side"
+
+  - domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: 28
+    comment: "Icon Size: 28px"
+
+tools:
+  ## development
+  - command: mise
+    description: "package manager like asdf"
+  - command: uv
+    description: "python package & project manager"
+
+  ## docker
+  - command: docker
+  - command: docker-compose
+  - command: docker-buildx
+    check:
+      type: path
+      value: /opt/homebrew/bin/docker-buildx
+  - command: lazydocker
+    description: "docker TUI client"
+  - command: colima
+    description: "container runtime"
+
+  ## git
+  - command: git
+    check:
+      type: path
+      value: /opt/homebrew/bin/git
+  - command: gh
+    description: "GitHub CLI"
+  - command: lazygit
+    description: "git TUI Client"
+
+  - command: editorconfig
+    description: "editorconfig"
+
+  - command: starship
+    description: "prompt starship"
+
+  - command: eza
+    description: "ls"
+
+  - command: yq
+    description: "yaml/json processor"
+
+  - command: libpq
+    description: "postgresql client library"
+    auto: false  # linked by mise-managed runtimes; upgrade manually
+    check:
+      type: command
+      value: pg_config
+
+  - command: libyaml
+    description: "yaml library"
+    auto: false  # linked by mise-managed runtimes; upgrade manually
+    check:
+      type: path
+      value: /opt/homebrew/include/yaml.h
+
+  - command: kimigayo
+    tap: politive/kimigayo
+    description: "play the National Anthem of Japan"
+
+  - command: zsh
+    check:
+      type: path
+      value: /opt/homebrew/bin/zsh
+
+  ## cloud
+  - command: awscli
+    description: "AWS CLI"
+    check:
+      type: command
+      value: aws
+  - command: gcloud-cli
+    cask: true
+    description: "Google Cloud CLI"
+    check:
+      type: path
+      value: /opt/homebrew/bin/gcloud
+  - command: stripe
+    tap: stripe/stripe-cli
+    description: "Stripe CLI"
+
+  ## ai
+  - command: claude-code
+    cask: true
+    description: "Claude Code CLI"
+    check:
+      type: path
+      value: /opt/homebrew/bin/claude
+
+  ## mobile
+  - command: flutter
+    cask: true
+    description: "Flutter SDK"
+    check:
+      type: path
+      value: /opt/homebrew/bin/flutter
+
+  - command: google-chrome
+    cask: true
+    description: "Browser"
+    check:
+      type: path
+      value: /Applications/Google Chrome.app
+
+  - command: openvpn-connect
+    cask: true
+    description: "VPN client"
+    check:
+      type: path
+      value: /Applications/OpenVPN Connect.app
+
+  - command: 1password
+    cask: true
+    description: "Password manager"
+    check:
+      type: path
+      value: /Applications/1Password.app
+
+  - command: 1password-cli
+    cask: true
+    description: "1Password CLI (op)"
+    check:
+      type: command
+      value: op
+
+  - command: spotify
+    cask: true
+    description: "Music streaming service"
+    check:
+      type: path
+      value: /Applications/Spotify.app
+
+  - command: signal
+    cask: true
+    description: "Messaging and Calling App"
+    check:
+      type: path
+      value: /Applications/Signal.app
+
+  - command: visual-studio-code
+    cask: true
+    description: "Code Editor"
+    check:
+      type: path
+      value: /Applications/Visual Studio Code.app
+
+  - command: figma
+    cask: true
+    description: "Design tool"
+    check:
+      type: path
+      value: /Applications/Figma.app
+
+  - command: discord
+    cask: true
+    description: "Messaging and Calling App"
+    check:
+      type: path
+      value: /Applications/Discord.app
+
+  - command: slack
+    cask: true
+    description: "Messaging and Calling App"
+    check:
+      type: path
+      value: /Applications/Slack.app
