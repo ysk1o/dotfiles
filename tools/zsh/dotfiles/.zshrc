@@ -15,8 +15,8 @@ function tabname() {
 }
 
 # tools/*/export.zshを読み込む
-YAMATO_D_PATH="$HOME/.local/share/yamato/yamato.d"
-for file in $YAMATO_D_PATH/tools/*/export.zsh; do
+DOTFILES_PATH="$HOME/.local/share/dotfiles"
+for file in $DOTFILES_PATH/tools/*/export.zsh; do
   if [ -f "$file" ]; then
     source "$file"
   fi

@@ -41,7 +41,7 @@ brew_tap() {
     command)
       if ! command -v "$check_value" >/dev/null 2>&1; then
         # Tool not installed, check if tap is needed
-        local tap=$(yq ".tools[$tool_index].tap" "$PRESET_FILE" 2>/dev/null)
+        local tap=$(yq ".tools[$tool_index].tap" "$CONFIG_FILE" 2>/dev/null)
         if [ "$tap" != "null" ] && [ -n "$tap" ]; then
           run brew tap "$tap"
         fi
@@ -50,7 +50,7 @@ brew_tap() {
     path)
       if [ ! -e "$check_value" ]; then
         # Tool not installed, check if tap is needed
-        local tap=$(yq ".tools[$tool_index].tap" "$PRESET_FILE" 2>/dev/null)
+        local tap=$(yq ".tools[$tool_index].tap" "$CONFIG_FILE" 2>/dev/null)
         if [ "$tap" != "null" ] && [ -n "$tap" ]; then
           run brew tap "$tap"
         fi

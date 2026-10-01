@@ -16,11 +16,3 @@ create_symlink() {
     log_symlink "$target"
   fi
 }
-
-expand_path() {
-  local path="$1"
-  path="${path//\$HOME/$HOME}"
-  path="${path//\$YAMATO_PATH/$YAMATO_PATH}"
-  path="${path//\$YAMATO_D_PATH/$YAMATO_D_PATH}"
-  echo "$path"
-}

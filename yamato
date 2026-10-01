@@ -9,18 +9,17 @@ ascii_art='
 '
 echo "$ascii_art"
 
-YAMATO_PATH="$HOME/.local/share/yamato"
-YAMATO_D_PATH="$YAMATO_PATH/yamato.d"
+DOTFILES_PATH="$HOME/.local/share/dotfiles"
 
 # Load library functions
-source "$YAMATO_PATH/lib/log.sh"
-source "$YAMATO_PATH/lib/args.sh"
-source "$YAMATO_PATH/lib/run.sh"
-source "$YAMATO_PATH/lib/fs.sh"
-source "$YAMATO_PATH/lib/brew.sh"
+source "$DOTFILES_PATH/lib/log.sh"
+source "$DOTFILES_PATH/lib/args.sh"
+source "$DOTFILES_PATH/lib/run.sh"
+source "$DOTFILES_PATH/lib/fs.sh"
+source "$DOTFILES_PATH/lib/brew.sh"
 
 # Load boot functions
-for bootfile in "$YAMATO_PATH/boot/"*.sh; do
+for bootfile in "$DOTFILES_PATH/boot/"*.sh; do
   [ -f "$bootfile" ] && source "$bootfile"
 done
 

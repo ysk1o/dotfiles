@@ -1,4 +1,4 @@
-PRESET_FILE="$YAMATO_PATH/yamato.yaml"
+CONFIG_FILE="$DOTFILES_PATH/config.yaml"
 
 
 log_section "Install Homebrew"
@@ -26,11 +26,11 @@ default_types=()
 default_values=()
 default_comments=()
 
-while IFS= read -r line; do default_domains+=("$line"); done < <(yq '.defaults[].domain' "$PRESET_FILE")
-while IFS= read -r line; do default_keys+=("$line"); done < <(yq '.defaults[].key' "$PRESET_FILE")
-while IFS= read -r line; do default_types+=("$line"); done < <(yq '.defaults[].type' "$PRESET_FILE")
-while IFS= read -r line; do default_values+=("$line"); done < <(yq '.defaults[].value' "$PRESET_FILE")
-while IFS= read -r line; do default_comments+=("$line"); done < <(yq '.defaults[].comment' "$PRESET_FILE")
+while IFS= read -r line; do default_domains+=("$line"); done < <(yq '.defaults[].domain' "$CONFIG_FILE")
+while IFS= read -r line; do default_keys+=("$line"); done < <(yq '.defaults[].key' "$CONFIG_FILE")
+while IFS= read -r line; do default_types+=("$line"); done < <(yq '.defaults[].type' "$CONFIG_FILE")
+while IFS= read -r line; do default_values+=("$line"); done < <(yq '.defaults[].value' "$CONFIG_FILE")
+while IFS= read -r line; do default_comments+=("$line"); done < <(yq '.defaults[].comment' "$CONFIG_FILE")
 
 default_count=${#default_domains[@]}
 
@@ -61,7 +61,7 @@ done
 
 
 tool_cmds=()
-while IFS= read -r line; do tool_cmds+=("$line"); done < <(yq '.tools[].command' "$PRESET_FILE")
+while IFS= read -r line; do tool_cmds+=("$line"); done < <(yq '.tools[].command' "$CONFIG_FILE")
 tool_count=${#tool_cmds[@]}
 
 for ((i=0; i<tool_count; i++)); do
@@ -71,19 +71,19 @@ for ((i=0; i<tool_count; i++)); do
   log_section "Install $cmd"
 
   # Get check type with default value
-  check_type=$(yq ".tools[$i].check.type" "$PRESET_FILE" 2>/dev/null)
+  check_type=$(yq ".tools[$i].check.type" "$CONFIG_FILE" 2>/dev/null)
   if [ "$check_type" = "null" ] || [ -z "$check_type" ]; then
     check_type="command"
   fi
 
   # Get check value with default value (use command if not specified)
-  check_value=$(yq ".tools[$i].check.value" "$PRESET_FILE" 2>/dev/null)
+  check_value=$(yq ".tools[$i].check.value" "$CONFIG_FILE" 2>/dev/null)
   if [ "$check_value" = "null" ] || [ -z "$check_value" ]; then
     check_value="$cmd"
   fi
 
   # Get cask if specified
-  cask=$(yq ".tools[$i].cask" "$PRESET_FILE" 2>/dev/null)
+  cask=$(yq ".tools[$i].cask" "$CONFIG_FILE" 2>/dev/null)
   if [ "$cask" = "true" ]; then
     brew_install_cask "$cmd" "$cmd" "$check_type" "$check_value" "$i"
   else
@@ -91,14 +91,14 @@ for ((i=0; i<tool_count; i++)); do
   fi
 
   # Exclude from `brew upgrade` if pinned
-  pin=$(yq ".tools[$i].pin" "$PRESET_FILE" 2>/dev/null)
+  pin=$(yq ".tools[$i].pin" "$CONFIG_FILE" 2>/dev/null)
   if [ "$pin" = "true" ]; then
     run brew pin "$cmd"
     log_applied "$cmd pin"
   fi
 
   # Auto-discover config files in tools/<command>/dotfiles/ and create symlinks
-  tool_dotfiles_dir="$YAMATO_D_PATH/tools/$cmd/dotfiles"
+  tool_dotfiles_dir="$DOTFILES_PATH/tools/$cmd/dotfiles"
   if [ -d "$tool_dotfiles_dir" ]; then
     find "$tool_dotfiles_dir" -type f | while read -r src_file; do
       # Get relative path from tools/<command>/dotfiles/
@@ -116,7 +116,7 @@ for ((i=0; i<tool_count; i++)); do
   fi
 
   # Auto-detect and run post_install.sh
-  tool_post_install_script="$YAMATO_D_PATH/tools/$cmd/post_install.sh"
+  tool_post_install_script="$DOTFILES_PATH/tools/$cmd/post_install.sh"
   if [ -f "$tool_post_install_script" ]; then
     source "$tool_post_install_script"
   fi
