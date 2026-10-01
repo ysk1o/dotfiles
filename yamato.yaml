@@ -66,14 +66,14 @@ tools:
 
   - command: libpq
     description: "postgresql client library"
-    auto: false  # linked by mise-managed runtimes; upgrade manually
+    pin: true  # linked by mise-managed runtimes; upgrade manually
     check:
       type: command
       value: pg_config
 
   - command: libyaml
     description: "yaml library"
-    auto: false  # linked by mise-managed runtimes; upgrade manually
+    pin: true  # linked by mise-managed runtimes; upgrade manually
     check:
       type: path
       value: /opt/homebrew/include/yaml.h

@@ -7,10 +7,6 @@ log_installed() {
   echo "  ✅ $1 installed."
 }
 
-log_upgraded() {
-  echo "  ⬆️  $1 upgraded."
-}
-
 log_applied() {
   echo "  ✅ $1 settings applied."
 }
@@ -29,10 +25,6 @@ log_synlink_skipped() {
 
 log_skipped() {
   echo "  ⏭️  $1 already installed. Skipping."
-}
-
-log_uptodate() {
-  echo "  ⏭️  $1 already up to date. Skipping."
 }
 
 log_failure() {

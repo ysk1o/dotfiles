@@ -32,29 +32,6 @@ brew_install() {
   esac
 }
 
-brew_upgrade() {
-  local name="$1"
-  local is_cask="$2"
-
-  local cask_flag=""
-  if [ "$is_cask" = "true" ]; then
-    cask_flag="--cask"
-  fi
-
-  # Only upgrade when brew reports it as outdated. Casks with auto_updates
-  # (e.g. flutter, gcloud-cli) are not tracked by brew, so they are skipped
-  # here and left to update themselves.
-  if brew outdated $cask_flag "$name" 2>/dev/null | grep -q .; then
-    if run brew upgrade $cask_flag "$name"; then
-      log_upgraded "$name"
-    else
-      log_failure "$name upgrade"
-    fi
-  else
-    log_uptodate "$name"
-  fi
-}
-
 brew_tap() {
   local tool_index="$1"
   local check_type="$2"

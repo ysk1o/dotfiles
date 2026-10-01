@@ -28,24 +28,17 @@ done
 check_version
 fetch_repo
 
-if [ "${UPGRADE:-0}" -eq 1 ]; then
-  run_upgrade
-else
-  init_config
-  run_install
-  install_command
-  install_schedule
-fi
+init_config
+run_install
+install_command
+install_schedule
 
-
-if [ "${UPGRADE:-0}" -eq 0 ]; then
-  echo ""
-  echo "========================================================"
-  echo ""
-  echo "🔄 Please log out and log back in to apply all changes."
-  echo ""
-  echo "👉 Shortcut: Command (⌘) + Shift (⇧) + Q"
-  echo ""
-  echo "========================================================"
-  echo ""
-fi
+echo ""
+echo "========================================================"
+echo ""
+echo "🔄 Please log out and log back in to apply all changes."
+echo ""
+echo "👉 Shortcut: Command (⌘) + Shift (⇧) + Q"
+echo ""
+echo "========================================================"
+echo ""

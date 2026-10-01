@@ -90,6 +90,13 @@ for ((i=0; i<tool_count; i++)); do
     brew_install "$cmd" "$check_type" "$check_value" "$i"
   fi
 
+  # Exclude from `brew upgrade` if pinned
+  pin=$(yq ".tools[$i].pin" "$PRESET_FILE" 2>/dev/null)
+  if [ "$pin" = "true" ]; then
+    run brew pin "$cmd"
+    log_applied "$cmd pin"
+  fi
+
   # Auto-discover config files in tools/<command>/dotfiles/ and create symlinks
   tool_dotfiles_dir="$YAMATO_D_PATH/tools/$cmd/dotfiles"
   if [ -d "$tool_dotfiles_dir" ]; then

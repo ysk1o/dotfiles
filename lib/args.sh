@@ -2,7 +2,6 @@ VERBOSE=0
 DRYRUN=0
 SKIP_PULL=0
 DEV_MODE=0
-UPGRADE=0
 
 while [ $# -gt 0 ]; do
   arg="$1"
@@ -23,12 +22,8 @@ while [ $# -gt 0 ]; do
       DEV_MODE=1
       shift
       ;;
-    --upgrade)
-      UPGRADE=1
-      shift
-      ;;
     --help|-h)
-      echo "Usage: $0 [--verbose] [--dryrun] [--skip-pull] [--dev] [--upgrade]"
+      echo "Usage: $0 [--verbose] [--dryrun] [--skip-pull] [--dev]"
       exit 0
       ;;
     *)
