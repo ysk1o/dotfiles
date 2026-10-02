@@ -23,6 +23,11 @@ log_synlink_skipped() {
   echo "  ♻️  $1 already created. Skipping."
 }
 
+log_conflict() {
+  echo "  ⚠️  $1 differs from the repo. Skipping."
+  echo "      diff -u \"$1\" \"$2\""
+}
+
 log_skipped() {
   echo "  ⏭️  $1 already installed. Skipping."
 }

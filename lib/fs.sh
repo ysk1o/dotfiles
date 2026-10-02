@@ -11,6 +11,14 @@ create_symlink() {
       run ln -sf "$source" "$target"
       log_synlink_replaced "$target"
     fi
+  elif [ -e "$target" ]; then
+    # Replace an existing file only when it matches the repo; otherwise leave it for manual resolution
+    if cmp -s "$source" "$target"; then
+      run ln -sf "$source" "$target"
+      log_synlink_replaced "$target"
+    else
+      log_conflict "$target" "$source"
+    fi
   else
     run ln -sf "$source" "$target"
     log_symlink "$target"
