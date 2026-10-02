@@ -138,6 +138,12 @@ tools:
     check:
       type: path
       value: /opt/homebrew/bin/claude
+  - command: codex
+    cask: true
+    description: "OpenAI Codex CLI"
+    check:
+      type: path
+      value: /opt/homebrew/bin/codex
 
   ## mobile
   - command: flutter
