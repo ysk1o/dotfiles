@@ -18,6 +18,8 @@ make upgrade   # brew update && brew upgrade && brew cleanup
 
 `VERBOSE=1 make install` shows command output.
 
+From any directory, `dotfiles <target>` (defined in `.zshrc`) runs the same targets, e.g. `dotfiles upgrade`.
+
 ## Layout
 
 - `config.yaml` — macOS defaults and Homebrew tools

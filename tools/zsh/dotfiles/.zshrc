@@ -21,3 +21,13 @@ for file in $DOTFILES_PATH/tools/*/export.zsh; do
     source "$file"
   fi
 done
+
+# Run dotfiles make targets from anywhere (e.g. `dotfiles upgrade`)
+function dotfiles() {
+  make --no-print-directory -C "$DOTFILES_PATH" "$@"
+}
+
+if (( $+functions[compdef] )); then
+  _dotfiles() { compadd ${=$(sed -n 's/^\.PHONY: //p' "$DOTFILES_PATH/Makefile")} }
+  compdef _dotfiles dotfiles
+fi
