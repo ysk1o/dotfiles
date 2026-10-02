@@ -94,6 +94,13 @@ tools:
       type: path
       value: ~/Library/Fonts/HackGenConsoleNF-Regular.ttf
 
+  - command: wezterm
+    cask: true
+    description: "Terminal emulator"
+    check:
+      type: path
+      value: /Applications/WezTerm.app
+
   ## cloud
   - command: awscli
     description: "AWS CLI"
@@ -109,6 +116,20 @@ tools:
   - command: stripe
     tap: stripe/stripe-cli
     description: "Stripe CLI"
+  - command: session-manager-plugin
+    cask: true
+    description: "AWS Session Manager plugin for awscli"
+  - command: ecspresso
+    tap: kayac/tap
+    description: "Amazon ECS deployment tool"
+  - command: tflint
+    tap: terraform-linters/tap
+    cask: true
+    description: "Terraform linter"
+
+  ## media
+  - command: ffmpeg
+    description: "audio/video converter"
 
   ## ai
   - command: claude-code
