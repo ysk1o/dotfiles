@@ -35,6 +35,11 @@ config.window_padding = {
   bottom = 10, -- Bottom padding
 }
 
+config.keys = {
+  -- Shift+Enter sends ESC+Enter so Claude Code inserts a newline
+  { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\x1b\r") },
+}
+
 -- Symbols for tab title formatting (Nerd Font triangles)
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.ple_lower_right_triangle
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.ple_upper_left_triangle
